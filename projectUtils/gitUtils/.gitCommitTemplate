@@ -1,0 +1,70 @@
+# 커밋 규칙 정리
+# 1. 커밋 가능하면 작게.
+# 2. 커밋 전에 로컬에서 빌드 해주세요.
+
+################ [제목]
+# <타입> : <제목> 의 형식으로 제목을 아래 공백줄에 작성
+# 예) feat : Add A to B
+#  {Type} : {content}
+Feat :
+
+
+################ [내용]
+# 본문(구체적인 내용)을 아랫줄에 작성합니다.
+# 여러 줄의 메시지를 작성할 땐 "-"로 구분하지만, 되도록 5줄을 넘지 않게 커밋을 잘게 유지합니다.
+# - {content1}
+# - {content2}
+-
+
+################ [타입]
+# 제목 종류
+# feat : 새로운 기능 추가
+# fix : 버그 수정
+# docs : 문서 수정
+# test : 테스트 코드 추가
+# refact : 코드 리팩토링
+# style : 코드 의미에 영향을 주지 않는 변경사항
+# chore : 빌드 부분 혹은 패키지 매니저 수정사항
+################
+
+
+################ [ 메세지 예시 ]
+# 옳게 된 커밋 예시
+# 출처 : https://blog.ull.im/engineering/2019/03/10/logs-on-git.html
+
+# 1. use "Don't"
+## Don't use spdy on node >= v10.0.0
+## Don't write to the persisted query cache until execution will begin.
+## Do not return list if there are too many crashes
+
+
+# 2.use "Fix"
+## Fix stat cache
+## Fix changelog entry
+## Fix broken jsiexecutor search path.
+
+
+# 3.use "Fix A in B"
+## Fix calculation in process.uptime()
+## Fix build warning in node_report.cc
+## Fix error condition in Verify::VerifyFinal
+## Fix typo in callback.cc
+## Fix duplicate symbols linker error in xcodeproj
+
+
+# 4.use "Fix A which B, Fix A that B"
+## Fix incorrect type which makes animated gifs not loop forever on device
+## Fix crash that happens when a component throws an exception that contains a null message
+
+
+# 5. Fix A to B, Fix A to be B
+## Fix inability to remove 'Disabled' state from AccessibilityStates
+## Fix HTTP connection timeout callback to be appropriately called
+
+
+# 6. Fix A so that B
+## Fix react-native init --help so that it doesn't return undefined
+## Fix Android 28's inverted ScrollView so that momentum is in the proper direction
+
+# ... you can see more expression in that link above
+################
