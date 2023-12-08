@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+}
+
+group 'com.dk0124.project'
+version '0.0-SNAPSHOT'
+
+sourceCompatibility = '16.0.1'
+targetCompatibility = '16.0.1'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
