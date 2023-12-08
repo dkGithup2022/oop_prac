@@ -1,0 +1,4 @@
+
+- resources / logback-variables.properties
+
+DISCORD_ERROR_LOG_URI=https://discord.com/api/webhooks/1182669818097324093/oGAYVULKbSnVaeODVzkh6_hJXEaNndDMkoaQYEIBiX6mUldmGfhryc7DYNEvu_97MWm5

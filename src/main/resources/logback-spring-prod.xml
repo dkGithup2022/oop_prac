@@ -17,8 +17,26 @@
         </encoder>
     </appender>
 
+
+    <appender name="DISCORD" class="com.github.napstr.logback.DiscordAppender">
+        <webhookUri>${DISCORD_ERROR_LOG_URI}</webhookUri>   <!-- properties 파일에 경로 설정 필요-->
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>[DICO] ${LOGGING_PATTERN}</pattern>
+        </layout>
+        <username>spring-error-log</username>
+        <tts>false</tts>
+    </appender>
+
+    <appender name="ASYNC_DISCORD" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="DISCORD" />
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+    </appender>
+
     <root level="INFO">
         <appender-ref ref="PROD_ROLLING"/>
+        <appender-ref ref="ASYNC_DISCORD"/>
     </root>
 
 </included>
