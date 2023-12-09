@@ -25,6 +25,16 @@ dependencies {
     runtimeOnly 'com.mysql:mysql-connector-j'
     runtimeOnly 'com.h2database:h2'
 
+    //query dsl
+    implementation group: 'com.querydsl', name: 'querydsl-jpa', version: '5.0.0', classifier: 'jakarta'
+    annotationProcessor group: 'com.querydsl', name: 'querydsl-apt', version: '5.0.0', classifier: 'jakarta'
+    annotationProcessor group: 'jakarta.persistence', name: 'jakarta.persistence-api', version: '3.1.0'
+
+    testImplementation group: 'com.querydsl', name: 'querydsl-jpa', version: '5.0.0', classifier: 'jakarta'
+    testAnnotationProcessor group: 'com.querydsl', name: 'querydsl-apt', version: '5.0.0', classifier: 'jakarta'
+    testAnnotationProcessor group: 'jakarta.persistence', name: 'jakarta.persistence-api', version: '3.1.0'
+
+
     // lombok
     compileOnly 'org.projectlombok:lombok:1.18.30'
     testCompileOnly 'org.projectlombok:lombok:1.18.30'
