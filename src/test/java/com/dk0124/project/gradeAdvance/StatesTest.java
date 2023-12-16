@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -49,29 +48,4 @@ public class StatesTest {
     }
 
 
-    private class States {
-        public States(Path path) { }
-
-        public AdvanceState get() {
-            if (!Files.exists(Path.of(STATE_FILE_PATH)))
-                return null;
-
-            List<String> lines = null;
-            try {
-                lines = Files.readAllLines(Path.of(STATE_FILE_PATH));
-                return AdvanceState.valueOf(lines.get(0));
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-
-        public void set(AdvanceState state) throws IOException {
-            Files.writeString(Path.of(STATE_FILE_PATH), state.name(), StandardOpenOption.CREATE);
-        }
-    }
-
-
-    private enum AdvanceState {
-        GENERATING
-    }
 }
