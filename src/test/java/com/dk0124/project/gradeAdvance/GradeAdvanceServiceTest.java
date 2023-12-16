@@ -91,56 +91,6 @@ public class GradeAdvanceServiceTest {
         BDDMockito.then(mockGen).shouldHaveNoInteractions();
         BDDMockito.then(targetExporter).shouldHaveNoInteractions();
         BDDMockito.then(targetApplier).should().apply(Mockito.eq(targets));
-
     }
 
-    private class GradeAdvanceService {
-        States states;
-        TargetGen targetGen;
-        TargetExporter targetExporter;
-        TargetApplier targetApplier;
-        TargetImporter targetImporter;
-
-        public GradeAdvanceService(States states, TargetGen targetGen, TargetExporter targetExporter, TargetApplier targetApplier, TargetImporter targetImporter) {
-            this.states = states;
-            this.targetGen = targetGen;
-            this.targetExporter = targetExporter;
-            this.targetApplier = targetApplier;
-            this.targetImporter = targetImporter;
-        }
-
-        public AdvanceResult advance() {
-
-            var state = states.get();
-            if (state == AdvanceState.COMPLETE)
-                return AdvanceResult.ALREADY_COMPLETED;
-
-            Targets targets = null;
-            // 뭐든 에러가 나면 ..!
-
-            if (state == AdvanceState.APPLY_FAILED) {
-                targets = targetImporter.importTargets(Path.of(TARGET_FILE_PATH));
-            } else {
-                try {
-                    targetGen.generate();
-                } catch (Exception e) {
-                    return AdvanceResult.TARGET_GEN_FAIL;
-                }
-
-                try {
-                    targetExporter.export(Path.of(TARGET_FILE_PATH), targets);
-                } catch (Exception e) {
-                    return AdvanceResult.TARGET_EXPORT_FAIL;
-                }
-            }
-
-            try {
-                targetApplier.apply(targets);
-            } catch (Exception e) {
-                return AdvanceResult.TARGET_APPLY_FAIL;
-            }
-
-            return AdvanceResult.SUCCESS;
-        }
-    }
 }
