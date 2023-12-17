@@ -32,8 +32,6 @@ storage:
         rewriteBatchedStatements: true
 
 
-
-
 ---
 spring.config.activate.on-profile: prod
 

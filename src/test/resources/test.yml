@@ -1,5 +1,5 @@
-spring.application.name: db-core-test
+spring.application.name: test
 spring:
   config:
     import:
-      - db-core.yml
+      - application.yml
